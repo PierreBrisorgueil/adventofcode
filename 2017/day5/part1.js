@@ -1,12 +1,17 @@
-module.exports = input => {
-    let index = 0, jumps = 0
-    input = input.map(i => +i)
+module.exports = input => result(input);
 
-    do {
-        let distance = input[index]
-        input[index]++
-        index += distance
-        jumps++
-    } while (index < input.length && index >= 0)
-    return jumps
+function result(s) {
+  let count = 0,
+    i = 0,
+    nextJump;
+
+  do {
+    s[i] = +s[i]
+    nextJump = s[i]
+    s[i]++
+    i += nextJump
+    count++
+  } while (i < s.length && i >= 0)
+
+  return count;
 }

@@ -1,6 +1,14 @@
-module.exports = input => input.reduce((acc, val) => {
-    let n, d = 1, row = val.split(/\s/).map(s => +s).sort((a, b) => a - b)
-    do n = row.pop()
-    while (!(d = row.find(c => n % c === 0)))
-    return acc + (n / d)
-}, 0)
+module.exports = input => result(input);
+
+function result(s) {
+  let count = 0
+
+  for (let i in s) {
+    let line = s[i].split('\t').sort((a, b) => +a - +b)
+    do number = line.pop()
+    while (!(solution = line.find(c => number % c === 0)))
+    count += number / solution;
+  }
+
+  return count;
+}
